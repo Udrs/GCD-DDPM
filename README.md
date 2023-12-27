@@ -1,5 +1,5 @@
 # GCD-DDPM
 Official implementation of GCD-DDPM
 
-The Code will be released in recently.
+The Code will be released in two weeks.
 
