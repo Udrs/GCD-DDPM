@@ -21,4 +21,5 @@ Most existing methods are ineffective in simultaneously capturing long-range dep
 
 # comparison 
 (a) DDPM-CD and (b) the proposed GCD-DDPM.
+
 ![image](https://github.com/udrs/GCD/assets/71435435/30bdf8d5-3675-4c21-b057-1a6caebeddd5)
