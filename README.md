@@ -22,5 +22,6 @@ An NSSE is proposed by employing an attention mechanism to suppress noise in the
 # Overall Architecture:
 ![image](https://github.com/udrs/GCD/assets/71435435/a4f04b4c-9700-4bbf-b147-7845345b4532)
 
-# comparison between (a) DDPM-CD and (b) the proposed GCD-DDPM.
+# comparison 
+(a) DDPM-CD and (b) the proposed GCD-DDPM.
 ![image](https://github.com/udrs/GCD/assets/71435435/30bdf8d5-3675-4c21-b057-1a6caebeddd5)
