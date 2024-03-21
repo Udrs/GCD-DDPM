@@ -7,6 +7,7 @@
 ![image](https://github.com/Udrs/DDPM-based-Change-Detection/blob/main/inference_vis_video/output_video5.gif)
 ![image](https://github.com/Udrs/DDPM-based-Change-Detection/blob/main/inference_vis_video/output_video6.gif)
 
+Watch our other work within：https://github.com/sstary/SSRS
 
 # Motivations:
 Most existing methods are ineffective in simultaneously capturing long-range dependencies and exploiting local spatial information, making it challenging to obtain fine-grained and accurate CD maps. To overcome these obstacles, a novel Denoising Diffusion Probabilistic Model (DDPM)-based generative CD approach called GCD-DDPM is proposed for remote sensing data.
