@@ -16,7 +16,11 @@ from .utils import to_cuda, maybe_to_torch
 from scipy.ndimage.filters import gaussian_filter
 from typing import Union, Tuple, List
 from torch.cuda.amp import autocast
+<<<<<<< HEAD
 from cat_diff import cator
+=======
+from siamunet_diff import SiamUnet_diff
+>>>>>>> master
 from .nn import (
     checkpoint,
     conv_nd,
@@ -577,7 +581,11 @@ class UNetModel(nn.Module):
             ]
         )
 
+<<<<<<< HEAD
         self.AB_Concator = cator(3, 2)
+=======
+        self.AB_Concator = SiamUnet_diff(3, 2)
+>>>>>>> master
         # net, net_name = SiamUnet_diff(3, 2)
         self._feature_size = model_channels
         input_block_chans = [model_channels]
@@ -761,20 +769,42 @@ class UNetModel(nn.Module):
             self.num_classes is not None
         ), "must specify y if and only if the model is class-conditional"
 
+<<<<<<< HEAD
         
 
+=======
+        # pre_process
+>>>>>>> master
         A_img = x[:, 0:3, ...]
         B_img = x[:, 3:6, ...]
         mask_noisy = x[:, 6:7, ...]
 
 
 
+<<<<<<< HEAD
+=======
+        # AB fusion
+
+
+
+>>>>>>> master
         diff_img = self.AB_Concator(A_img,B_img)
         diff_img = self.con2to3(diff_img)
         diff_img = th.cat((diff_img,mask_noisy),dim=1)
         A_img = th.cat((A_img,mask_noisy),dim=1)
         B_img = th.cat((B_img,mask_noisy),dim=1)
+<<<<<<< HEAD
       
+=======
+        # save_image(mask_noisy,"/media/lscsc/nas/yihan/ddpm_3/MedSegDiff_cat/results_3_10_test/mask_noisy.png")
+        # save_image(A_img,"/media/lscsc/nas/yihan/ddpm_3/MedSegDiff_cat/results_3_10_test/A_img.png")
+        # save_image(B_img,"/media/lscsc/nas/yihan/ddpm_3/MedSegDiff_cat/results_3_10_test/B_img.png")
+
+        
+
+        # hs = []
+        # hs2 = []
+>>>>>>> master
         hs_diff = []
         emb = self.time_embed(timestep_embedding(timesteps, self.model_channels))
 
@@ -792,10 +822,19 @@ class UNetModel(nn.Module):
         for ind, module in enumerate(self.input_blocks):
             if len(emb.size()) > 2:
                 emb = emb.squeeze()
+<<<<<<< HEAD
           
             h_diff = module(h_diff, emb)
             hs_diff.append(h_diff)
          
+=======
+            # h = module(h, emb)
+            # h2 = module(h2, emb)
+            h_diff = module(h_diff, emb)
+            hs_diff.append(h_diff)
+            # hs.append(h)
+            # hs2.append(h2)
+>>>>>>> master
 
         uemb, cal = self.highway_forward(c,c2, [hs_diff[3],hs_diff[6],hs_diff[9],hs_diff[12]])
         h = h_diff
@@ -2214,8 +2253,12 @@ class Generic_UNet(SegmentationNetwork):
             if self._deep_supervision:
                 seg_outputs.append(self.final_nonlin(self.seg_outputs[u](x)))
         if not seg_outputs:
+<<<<<<< HEAD
             aaa = self.final_nonlin(self.seg_outputs[0](x))  # (1, 32, 256, 256)  (1, 1, 256, 256)
             seg_outputs.append(self.final_nonlin(self.seg_outputs[0](x))) 
+=======
+            seg_outputs.append(self.final_nonlin(self.seg_outputs[0](x)))
+>>>>>>> master
 
         if self._deep_supervision and self.do_ds:
             return tuple([seg_outputs[-1]] + [i(j) for i, j in

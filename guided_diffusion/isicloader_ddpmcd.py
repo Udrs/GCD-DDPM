@@ -80,6 +80,14 @@ class ISICDataset(Dataset):
         #     print("3")
         # img_lbl = img_lbl.unsqueeze(0)
         # print("lbl:",img_lbl.shape)
+<<<<<<< HEAD
       
+=======
+        save_image(img_lbl,"/media/lscsc/nas/yihan/ddpm_3/MedSegDiff_cat/results_3_10_test/data_loader_CD.png")
+        # print("img_A",img_A.shape)
+        # save_image(img_A,"/media/lscsc/nas/yihan/ddpm_3/MedSegDiff_cat/test/data_loader_A.png")
+        # print("img_B:",img_B.shape)
+        # save_image(img_B,"/media/lscsc/nas/yihan/ddpm_3/MedSegDiff_cat/test/data_loader_B.png")
+>>>>>>> master
         return (img_A, img_B, img_lbl)
         # return {'A': img_A, 'B': img_B, 'L': img_lbl, 'Index': index}
