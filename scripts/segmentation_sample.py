@@ -72,9 +72,7 @@ def main():
     )
     all_images = []
 
-    # model_path = "/media/lscsc/nas/yihan/ddpm_3/Med_Dif/results_CDD/savedmodel465000.pt"
-    # model_path = "/media/lscsc/nas/yihan/ddpm_3/Med_Dif/results_CDD/savedmodel480000.pt"
-    model_path = "/media/lscsc/nas/yihan/ddpm_3/Med_Dif/results_WHU/savedmodel090000.pt"
+    model_path = "/media/xxx/savedmodel465000.pt"
     state_dict = dist_util.load_state_dict(model_path, map_location="cpu")
     from collections import OrderedDict
     new_state_dict = OrderedDict()
@@ -127,9 +125,7 @@ def main():
             end.record()
             th.cuda.synchronize()
             print('time for 1 sample', start.elapsed_time(end))  #time measurement for the generation of 1 sample
-            save_image(CD_img,f"/media/lscsc/nas/yihan/ddpm_3/Med_Dif/57/CD/{time_step}.png")
-            print("111")
-            save_image(cal_out,f"/media/lscsc/nas/yihan/ddpm_3/Med_Dif/57/cal/{time_step}_{i}.png")
+     
             co = th.tensor(cal_out)
             enslist.append(co)
 
@@ -156,8 +152,7 @@ def main():
             #     compose = th.cat(tup,0)
             #     vutils.save_image(compose, fp = args.out_dir +'_output'+str(i)+".jpg", nrow = 1, padding = 10)
         ensres = staple(th.stack(enslist,dim=0)).squeeze(0)
-        vutils.save_image(ensres, fp = "/media/lscsc/nas/yihan/ddpm_3/Med_Dif/57/ens/"+str(time_step)+".png", nrow = 1, padding = 10)
-
+    
 def create_argparser():
     defaults = dict(
         data_name = 'ISIC',

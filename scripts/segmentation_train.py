@@ -83,7 +83,7 @@ def main():
 def create_argparser():
     defaults = dict(
         data_name = 'ISIC',
-        data_dir="/media/lscsc/nas/yihan/ddpm_timefusion/ddpm-cd/dataset/CDD",
+        data_dir="x",
         schedule_sampler="uniform",
         lr=1e-4,
         weight_decay=0.0,

@@ -330,8 +330,7 @@ class GaussianDiffusion:
         assert (
             model_mean.shape == model_log_variance.shape == pred_xstart.shape == x.shape
         )
-        # save_image(cal,"/media/lscsc/nas/yihan/ddpm_3/Med_Dif/3_26/cal.png")
-        # save_image(pred_xstart,"/media/lscsc/nas/yihan/ddpm_3/Med_Dif/3_26/pred_xstart.png")
+        
         return {
             "mean": model_mean,
             "variance": model_variance,
@@ -453,10 +452,7 @@ class GaussianDiffusion:
         )
         sample = out["mean"] + nonzero_mask * th.exp(0.5 * out["log_variance"]) * noise
         from torchvision.utils import save_image
-        # /media/lscsc/nas/yihan/ddpm_3/MedSegDiff_cat/guided_diffusion/gaussian_diffusion.py
-        # save_image(out["cal"],"/media/lscsc/nas/yihan/ddpm_3/MedSegDiff_cat/3_13/out.png")
-        # save_image(sample,"/media/lscsc/nas/yihan/ddpm_3/MedSegDiff_cat/3_13/sam.png")
-        # save_image(out["pred_xstart"],"/media/lscsc/nas/yihan/ddpm_3/MedSegDiff_cat/3_13/pre.png")
+        
         return {"sample": sample, "pred_xstart": out["pred_xstart"], "cal": out["cal"]}
 
     def p_sample_loop(
@@ -984,12 +980,11 @@ class GaussianDiffusion:
 
         mask = x_start[:, -1:, ...]
         res = copy.deepcopy(mask)  #merge all tumor classes into one to get a binary segmentation mask
-        # res = mask
-        # save_image(res,"/media/lscsc/nas/yihan/ddpm_3/MedSegDiff_cat/results_3_10_test/res1.png")
+        
         res_t = self.q_sample(res, t, noise=noise)     #add noise to the segmentation channel
         x_t=x_start.float()
         x_t[:, -1:, ...]=res_t.float()
-        # save_image(x_t,"/media/lscsc/nas/yihan/ddpm_2/MedSegDiff/cmp/x_t.png")
+        
         terms = {}
 
 
@@ -1027,10 +1022,7 @@ class GaussianDiffusion:
                 ModelMeanType.EPSILON: noise,
             }[self.model_mean_type]
 
-            # model_output = (cal > 0.5) * (model_output >0.5) * model_output if 2. * (cal*model_output).sum() / (cal+model_output).sum() < 0.75 else model_output
-            terms["mse_diff"] = mean_flat((target - model_output) ** 2 )
-            # save_image(res,"/media/lscsc/nas/yihan/ddpm_3/MedSegDiff_cat/3_13/res2.png")
-            # save_image(cal,"/media/lscsc/nas/yihan/ddpm_3/MedSegDiff_cat/3_13/cal.png")
+            
             terms["loss_cal"] = mean_flat((res - cal) ** 2)
             # terms["mse"] = (terms["mse_diff"] + terms["mse_cal"]) / 2.
             if "vb" in terms:
