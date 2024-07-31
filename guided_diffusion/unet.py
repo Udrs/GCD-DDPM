@@ -776,9 +776,6 @@ class UNetModel(nn.Module):
         diff_img = th.cat((diff_img,mask_noisy),dim=1)
         A_img = th.cat((A_img,mask_noisy),dim=1)
         B_img = th.cat((B_img,mask_noisy),dim=1)
-        # save_image(mask_noisy,"/media/lscsc/nas/yihan/ddpm_3/MedSegDiff_cat/results_3_10_test/mask_noisy.png")
-        # save_image(A_img,"/media/lscsc/nas/yihan/ddpm_3/MedSegDiff_cat/results_3_10_test/A_img.png")
-        # save_image(B_img,"/media/lscsc/nas/yihan/ddpm_3/MedSegDiff_cat/results_3_10_test/B_img.png")
 
         
 
