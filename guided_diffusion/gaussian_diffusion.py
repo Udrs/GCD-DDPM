@@ -14,11 +14,7 @@ import os
 # viz = Visdom(port=8850)
 import numpy as np
 import torch as th
-<<<<<<< HEAD
-# from .train_util import visualize
-=======
 from .train_util import visualize
->>>>>>> master
 from .nn import mean_flat
 from .losses import normal_kl, discretized_gaussian_log_likelihood
 from scipy import ndimage
@@ -334,12 +330,8 @@ class GaussianDiffusion:
         assert (
             model_mean.shape == model_log_variance.shape == pred_xstart.shape == x.shape
         )
-<<<<<<< HEAD
-  
-=======
         # save_image(cal,"/media/lscsc/nas/yihan/ddpm_3/Med_Dif/3_26/cal.png")
         # save_image(pred_xstart,"/media/lscsc/nas/yihan/ddpm_3/Med_Dif/3_26/pred_xstart.png")
->>>>>>> master
         return {
             "mean": model_mean,
             "variance": model_variance,
@@ -461,14 +453,10 @@ class GaussianDiffusion:
         )
         sample = out["mean"] + nonzero_mask * th.exp(0.5 * out["log_variance"]) * noise
         from torchvision.utils import save_image
-<<<<<<< HEAD
-      
-=======
         # /media/lscsc/nas/yihan/ddpm_3/MedSegDiff_cat/guided_diffusion/gaussian_diffusion.py
         # save_image(out["cal"],"/media/lscsc/nas/yihan/ddpm_3/MedSegDiff_cat/3_13/out.png")
         # save_image(sample,"/media/lscsc/nas/yihan/ddpm_3/MedSegDiff_cat/3_13/sam.png")
         # save_image(out["pred_xstart"],"/media/lscsc/nas/yihan/ddpm_3/MedSegDiff_cat/3_13/pre.png")
->>>>>>> master
         return {"sample": sample, "pred_xstart": out["pred_xstart"], "cal": out["cal"]}
 
     def p_sample_loop(
@@ -976,10 +964,6 @@ class GaussianDiffusion:
 
 
 
-<<<<<<< HEAD
-
-
-=======
     def training_losses_segmentation(self, model, classifier, x_start, t, model_kwargs=None, noise=None):
         """
         Compute training losses for a single timestep.
@@ -1059,7 +1043,6 @@ class GaussianDiffusion:
 
         return (terms, model_output)
 
->>>>>>> master
 
     def _prior_bpd(self, x_start):
         """
