@@ -16,7 +16,7 @@ from .utils import to_cuda, maybe_to_torch
 from scipy.ndimage.filters import gaussian_filter
 from typing import Union, Tuple, List
 from torch.cuda.amp import autocast
-from siamunet_diff import SiamUnet_diff
+from Your_Diff_Module import Diff_Module
 from .nn import (
     checkpoint,
     conv_nd,
@@ -577,9 +577,8 @@ class UNetModel(nn.Module):
             ]
         )
 
-        self.AB_Concator = SiamUnet_diff(3, 2)
-        # net, net_name = SiamUnet_diff(3, 2)
-        self._feature_size = model_channels
+        self.AB_Concator = Diff_Module(3, 2)  # add your novel diff module here into the diffusion model framework. you will obtain a good result. 
+      	self._feature_size = model_channels
         input_block_chans = [model_channels]
         ch = model_channels
         ds = 1
