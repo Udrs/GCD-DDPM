@@ -1,4 +1,6 @@
-
+# Env 
+pip install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu118
+pip install -r requirement.txt
 
 # Visualization:
 ![image](https://github.com/Udrs/DDPM-based-Change-Detection/blob/main/inference_vis_video/output_video2.gif)
@@ -19,6 +21,11 @@ Most existing methods are ineffective in simultaneously capturing long-range dep
 
 # Overall Architecture:
 ![image](https://github.com/udrs/GCD/assets/71435435/a4f04b4c-9700-4bbf-b147-7845345b4532)
+
+# notation
+
+https://github.com/udrs/GCD/blob/fe64a6c1c0d58cfb45768de8a00ad2be151920fb/guided_diffusion/unet.py#L580
+self.AB_Concator = Diff_Module(3, 2)  # add your novel diff module here into the diffusion model framework. you will obtain a good result. 
 
 # comparison 
 (a) DDPM-CD and (b) the proposed GCD-DDPM.
