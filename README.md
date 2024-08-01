@@ -20,7 +20,7 @@ See our other work within：https://github.com/sstary/SSRS
 
 # notation
 
-https://github.com/udrs/GCD/blob/fe64a6c1c0d58cfb45768de8a00ad2be151920fb/guided_diffusion/unet.py#L580
+https://github.com/udrs/diffusion-framework-for-CD-/blob/fe64a6c1c0d58cfb45768de8a00ad2be151920fb/guided_diffusion/unet.py#L580
 self.AB_Concator = Diff_Module(3, 2)  # add your novel diff module here into the diffusion model framework. you will obtain a good result. 
 
 
