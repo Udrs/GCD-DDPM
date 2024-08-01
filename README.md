@@ -18,19 +18,11 @@ python scripts/segmentation_sample.py  --data_dir xxx --out_dir xxx --model_path
 See our other work within：https://github.com/sstary/SSRS
 
 
-
-# Overall Architecture:
-![image](https://github.com/udrs/GCD/assets/71435435/a4f04b4c-9700-4bbf-b147-7845345b4532)
-
 # notation
 
 https://github.com/udrs/GCD/blob/fe64a6c1c0d58cfb45768de8a00ad2be151920fb/guided_diffusion/unet.py#L580
 self.AB_Concator = Diff_Module(3, 2)  # add your novel diff module here into the diffusion model framework. you will obtain a good result. 
 
-# comparison 
-(a) DDPM-CD and (b) the proposed GCD-DDPM.
-
-![image](https://github.com/udrs/GCD/assets/71435435/30bdf8d5-3675-4c21-b057-1a6caebeddd5)
 
 # Statement
 The training file has been attached
